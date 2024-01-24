@@ -3,12 +3,13 @@ const cors = require("cors");
 const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 8080;
-app.use(express.json());
 const userRoutes = require("./routes/userRoutes");
 
 app.get("/", (req, res) => {
   res.send("Welcome to My API");
 });
+
+app.use(express.json());
 
 // Use CORS middleware
 app.use(cors());

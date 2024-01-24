@@ -8,7 +8,9 @@ const addUser = (req, res) => {
     !req.body.user_phoneNum ||
     !req.body.user_summary ||
     !req.body.user_linkedIn ||
-    !req.body.user_github
+    !req.body.user_github ||
+    !req.body.user_primaryColor ||
+    !req.body.user_secondaryColor
   ) {
     res.status(400).json("Incomplete form");
   }
@@ -23,6 +25,16 @@ const addUser = (req, res) => {
     })
     .catch(() => {
       res.status(500).json({ message: "Unable to create new user" });
+    });
+};
+
+const findAllUsers = (_req, res) => {
+  knex("user")
+    .then((data) => {
+      res.status(200).json(data);
+    })
+    .catch((err) => {
+      res.status(400).send(`Error retrieving Users: ${err}`);
     });
 };
 
@@ -50,4 +62,5 @@ const findOne = (req, res) => {
 module.exports = {
   addUser,
   findOne,
+  findAllUsers,
 };

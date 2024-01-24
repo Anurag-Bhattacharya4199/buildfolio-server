@@ -11,6 +11,8 @@ exports.up = function (knex) {
     table.string("user_summary").notNullable();
     table.string("user_linkedIn").notNullable();
     table.string("user_github").notNullable();
+    table.string("user_primaryColor").notNullable();
+    table.string("user_secondaryColor").notNullable();
     table.timestamp("created_at").defaultTo(knex.fn.now());
     table
       .timestamp("updated_at")

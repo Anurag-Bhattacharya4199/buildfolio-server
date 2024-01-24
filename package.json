@@ -4,7 +4,11 @@
   "description": "This is the Server Application for buildfolio web application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "npx knex migrate:latest",
+    "migrate:down": "npx knex migrate:down",
+    "migrate:rollback": "npx knex migrate:rollback",
+    "start": "npx nodemon index.js"
   },
   "author": "Anurag Bhattacharya",
   "license": "ISC",
