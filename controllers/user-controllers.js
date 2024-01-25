@@ -12,7 +12,7 @@ const addUser = (req, res) => {
     !req.body.user_primaryColor ||
     !req.body.user_secondaryColor
   ) {
-    res.status(400).json("Incomplete form");
+    return res.status(400).json("Incomplete form");
   }
 
   knex("user")
