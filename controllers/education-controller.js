@@ -49,7 +49,7 @@ const findOne = (req, res) => {
     })
     .catch(() => {
       res.status(500).json({
-        message: `Unable to retrieve user data for user with ID: ${req.params.id}`,
+        message: `Unable to retrieve education data for education with ID: ${req.params.id}`,
       });
     });
 };
