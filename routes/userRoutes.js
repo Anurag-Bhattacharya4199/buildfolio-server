@@ -5,4 +5,6 @@ router.route("/").get(userController.findAllUsers).post(userController.addUser);
 
 router.route("/:id").get(userController.findOne);
 
+router.route("/:userId/educations").get(userController.findEducationForUser);
+
 module.exports = router;
