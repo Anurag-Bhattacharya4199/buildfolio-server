@@ -1,11 +1,19 @@
 const knex = require("knex")(require("../knexfile"));
-// const validator = require("validator");
+const validator = require("validator");
 
 const addUser = (req, res) => {
+  const phoneRegex = /\+1\s\(\d\d\d\)\s\d\d\d-\d\d\d\d/;
+  // VALIDATE PHONE NUMBER
+  if (!req.body.user_phoneNum.match(phoneRegex)) {
+    return res.status(400).send("Invalid phone number");
+  }
+  // VALIDATE EMAIL
+  if (!validator.isEmail(req.body.user_email)) {
+    return res.status(400).send("Invalid email");
+  }
+
   if (
     !req.body.user_name ||
-    !req.body.user_email ||
-    !req.body.user_phoneNum ||
     !req.body.user_summary ||
     !req.body.user_linkedIn ||
     !req.body.user_github ||
