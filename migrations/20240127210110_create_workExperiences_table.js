@@ -3,17 +3,18 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-  return knex.schema.createTable("education", (table) => {
-    table.increments("edId").primary();
+  return knex.schema.createTable("workExperience", (table) => {
+    table.increments("workExpId").primary();
     table
       .integer("user_id")
       .unsigned()
       .references("user.id")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
-    table.string("school_name").notNullable();
-    table.string("certification_name").notNullable();
-    table.date("graduation_date").notNullable();
+    table.string("work_title").notNullable();
+    table.string("company_name").notNullable();
+    table.string("work_desc").notNullable();
+    table.date("start_date").notNullable();
     table.timestamp("created_at").defaultTo(knex.fn.now());
     table
       .timestamp("updated_at")
@@ -26,5 +27,5 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex.schema.dropTable("education");
+  return knex.schema.dropTable("workExperience");
 };

@@ -7,4 +7,8 @@ router.route("/:id").get(userController.findOne);
 
 router.route("/:userId/educations").get(userController.findEducationForUser);
 
+router
+  .route("/:userId/workExperiences")
+  .get(userController.findWorkExperiencesForUser);
+
 module.exports = router;

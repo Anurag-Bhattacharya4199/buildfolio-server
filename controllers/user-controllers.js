@@ -72,14 +72,12 @@ const findEducationForUser = (req, res) => {
     .where({ user_id: req.params.userId })
     .then((educationsFound) => {
       if (educationsFound.length === 0) {
-        return res
-          .status(404)
-          .json({ message: `Education with ID: ${req.params.id} not found` });
+        return res.status(200).json([]);
       } else {
         educationsFound.map((education) => {
           education.graduation_date = new Date(education.graduation_date)
             .toISOString()
-            .slice(0, 10);
+            .slice(0, 4);
           return education;
         });
       }
@@ -93,9 +91,34 @@ const findEducationForUser = (req, res) => {
     });
 };
 
+const findWorkExperiencesForUser = (req, res) => {
+  knex("workExperience")
+    .where({ user_id: req.params.userId })
+    .then((workExperiencesFound) => {
+      if (workExperiencesFound.length === 0) {
+        return res.status(200).json([]);
+      } else {
+        workExperiencesFound.map((workExperience) => {
+          workExperience.start_date = new Date(workExperience.start_date)
+            .toISOString()
+            .slice(0, 4);
+          return workExperience;
+        });
+      }
+
+      return res.status(200).json(workExperiencesFound);
+    })
+    .catch(() => {
+      res.status(500).json({
+        message: `Unable to retrieve work experiences data for user with ID: ${req.params.userId}`,
+      });
+    });
+};
+
 module.exports = {
   addUser,
   findOne,
   findAllUsers,
   findEducationForUser,
+  findWorkExperiencesForUser,
 };
