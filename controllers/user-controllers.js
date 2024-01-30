@@ -157,6 +157,27 @@ const findSkillsForUser = (req, res) => {
     });
 };
 
+const findReferencesForUser = (req, res) => {
+  knex("reference")
+    .where({ user_id: req.params.userId })
+    .then((referenceFound) => {
+      if (referenceFound.length === 0) {
+        return res.status(200).json([]);
+      } else {
+        referenceFound.map((reference) => {
+          return reference;
+        });
+      }
+
+      return res.status(200).json(referenceFound);
+    })
+    .catch(() => {
+      res.status(500).json({
+        message: `Unable to retrieve references data for user with ID: ${req.params.userId}`,
+      });
+    });
+};
+
 module.exports = {
   addUser,
   findOne,
@@ -165,4 +186,5 @@ module.exports = {
   findWorkExperiencesForUser,
   findProjectsForUser,
   findSkillsForUser,
+  findReferencesForUser,
 };

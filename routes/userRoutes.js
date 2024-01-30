@@ -15,4 +15,6 @@ router.route("/:userId/projects").get(userController.findProjectsForUser);
 
 router.route("/:userId/skills").get(userController.findSkillsForUser);
 
+router.route("/:userId/references").get(userController.findReferencesForUser);
+
 module.exports = router;
