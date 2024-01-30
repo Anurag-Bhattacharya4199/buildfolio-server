@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const educationRouter = require("../controllers/education-controller");
+const educationController = require("../controllers/education-controller");
 
 router
   .route("/")
-  .get(educationRouter.findAllEducations)
-  .post(educationRouter.addEducation);
+  .get(educationController.findAllEducations)
+  .post(educationController.addEducation);
 
-router.route("/:id").get(educationRouter.findOne);
+router.route("/:id").get(educationController.findOne);
 
 module.exports = router;

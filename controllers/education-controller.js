@@ -15,8 +15,8 @@ const addEducation = (req, res) => {
     .then((result) => {
       return knex("education").where({ edId: result[0] });
     })
-    .then((createdUser) => {
-      res.status(201).json(createdUser);
+    .then((createdEducation) => {
+      res.status(201).json(createdEducation);
     })
     .catch(() => {
       res.status(500).json({ message: "Unable to create new education" });

@@ -11,4 +11,6 @@ router
   .route("/:userId/workExperiences")
   .get(userController.findWorkExperiencesForUser);
 
+router.route("/:userId/projects").get(userController.findProjectsForUser);
+
 module.exports = router;

@@ -115,10 +115,32 @@ const findWorkExperiencesForUser = (req, res) => {
     });
 };
 
+const findProjectsForUser = (req, res) => {
+  knex("project")
+    .where({ user_id: req.params.userId })
+    .then((projectsFound) => {
+      if (projectsFound.length === 0) {
+        return res.status(200).json([]);
+      } else {
+        projectsFound.map((project) => {
+          return project;
+        });
+      }
+
+      return res.status(200).json(projectsFound);
+    })
+    .catch(() => {
+      res.status(500).json({
+        message: `Unable to retrieve projects data for user with ID: ${req.params.userId}`,
+      });
+    });
+};
+
 module.exports = {
   addUser,
   findOne,
   findAllUsers,
   findEducationForUser,
   findWorkExperiencesForUser,
+  findProjectsForUser,
 };
