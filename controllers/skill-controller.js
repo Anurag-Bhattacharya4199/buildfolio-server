@@ -21,8 +21,8 @@ const addSkill = (req, res) => {
     .then((result) => {
       return knex("skill").where({ skillId: result[0] });
     })
-    .then((createdSill) => {
-      res.status(201).json(createdSill);
+    .then((createdSkill) => {
+      res.status(201).json(createdSkill);
     })
     .catch(() => {
       res.status(500).json({ message: "Unable to create new skill" });
