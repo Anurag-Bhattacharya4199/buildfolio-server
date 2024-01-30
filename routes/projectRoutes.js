@@ -1,11 +1,11 @@
 const router = require("express").Router();
-const projectRouter = require("../controllers/project-controller");
+const projectController = require("../controllers/project-controller");
 
 router
   .route("/")
-  .get(projectRouter.findAllProjects)
-  .post(projectRouter.addProject);
+  .get(projectController.findAllProjects)
+  .post(projectController.addProject);
 
-router.route("/:id").get(projectRouter.findOne);
+router.route("/:id").get(projectController.findOne);
 
 module.exports = router;

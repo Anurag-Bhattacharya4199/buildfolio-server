@@ -136,6 +136,27 @@ const findProjectsForUser = (req, res) => {
     });
 };
 
+const findSkillsForUser = (req, res) => {
+  knex("skill")
+    .where({ skillId: req.params.userId })
+    .then((skillsFound) => {
+      if (skillsFound.length === 0) {
+        return res.status(200).json([]);
+      } else {
+        skillsFound.map((skill) => {
+          return skill;
+        });
+      }
+
+      return res.status(200).json(skillsFound);
+    })
+    .catch(() => {
+      res.status(500).json({
+        message: `Unable to retrieve skills data for user with ID: ${req.params.userId}`,
+      });
+    });
+};
+
 module.exports = {
   addUser,
   findOne,
@@ -143,4 +164,5 @@ module.exports = {
   findEducationForUser,
   findWorkExperiencesForUser,
   findProjectsForUser,
+  findSkillsForUser,
 };

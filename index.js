@@ -7,6 +7,7 @@ const userRoutes = require("./routes/userRoutes");
 const educationRoutes = require("./routes/educationRoutes");
 const workExperienceRoutes = require("./routes/workExperienceRoutes");
 const projectRoutes = require("./routes/projectRoutes");
+const skillRoutes = require("./routes/skillRoutes");
 
 app.get("/", (req, res) => {
   res.send("Welcome to My API");
@@ -28,6 +29,9 @@ app.use("/workExperiences", workExperienceRoutes);
 
 //all project routes
 app.use("/projects", projectRoutes);
+
+//all skill routes
+app.use("/skills", skillRoutes);
 
 app.listen(PORT, () => {
   console.log(`running at http://localhost:${PORT}`);
