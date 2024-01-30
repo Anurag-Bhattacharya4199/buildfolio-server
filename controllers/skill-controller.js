@@ -9,6 +9,13 @@ const addSkill = (req, res) => {
     return res.status(400).json("Incomplete form");
   }
 
+  if (
+    parseInt(req.body.skill_proficiencyLevel) < 1 ||
+    parseInt(req.body.skill_proficiencyLevel) > 5
+  ) {
+    return res.status(400).json("Number must be in range of 1 to 5");
+  }
+
   knex("skill")
     .insert(req.body)
     .then((result) => {

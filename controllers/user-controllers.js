@@ -138,7 +138,7 @@ const findProjectsForUser = (req, res) => {
 
 const findSkillsForUser = (req, res) => {
   knex("skill")
-    .where({ skillId: req.params.userId })
+    .where({ user_id: req.params.userId })
     .then((skillsFound) => {
       if (skillsFound.length === 0) {
         return res.status(200).json([]);
