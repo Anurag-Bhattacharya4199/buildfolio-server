@@ -4,16 +4,24 @@
   "description": "This is the Server Application for buildfolio web application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "migrate": "npx knex migrate:latest",
+    "migrate:down": "npx knex migrate:down",
+    "migrate:rollback": "npx knex migrate:rollback",
+    "start": "npx nodemon index.js"
   },
   "author": "Anurag Bhattacharya",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.2",
     "express": "^4.18.2",
     "knex": "^3.1.0",
     "mysql": "^2.18.1",
-    "nodemon": "^3.0.3"
+    "nodemon": "^3.0.3",
+    "routes": "^2.1.0",
+    "uuid": "^9.0.1",
+    "validator": "^13.11.0"
   }
 }
