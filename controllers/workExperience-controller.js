@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
+//Add Work Experience Data to Work Experience Table
 const addWorkExperience = (req, res) => {
   if (
     !req.body.user_id ||
@@ -24,6 +25,7 @@ const addWorkExperience = (req, res) => {
     });
 };
 
+//Find All Work Experience Items
 const findAllWorkExperiences = (_req, res) => {
   knex("workExperience")
     .then((data) => {
@@ -34,6 +36,7 @@ const findAllWorkExperiences = (_req, res) => {
     });
 };
 
+//Find Specific Work Experience Item based on ID
 const findOne = (req, res) => {
   knex("workExperience")
     .where({ workExpId: req.params.id })

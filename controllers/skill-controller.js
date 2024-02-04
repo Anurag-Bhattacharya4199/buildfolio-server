@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
+//Add Skill Data to Skill Table
 const addSkill = (req, res) => {
   if (
     !req.body.user_id ||
@@ -29,6 +30,7 @@ const addSkill = (req, res) => {
     });
 };
 
+//Find All Skill Items
 const findAllSkills = (_req, res) => {
   knex("skill")
     .then((data) => {
@@ -39,6 +41,7 @@ const findAllSkills = (_req, res) => {
     });
 };
 
+//Find Specific Skill Item based on ID
 const findOne = (req, res) => {
   knex("skill")
     .where({ skillId: req.params.id })

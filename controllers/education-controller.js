@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
+//Add Education Data to Education Table
 const addEducation = (req, res) => {
   if (
     !req.body.user_id ||
@@ -23,6 +24,7 @@ const addEducation = (req, res) => {
     });
 };
 
+//Find All Education Items
 const findAllEducations = (_req, res) => {
   knex("education")
     .then((data) => {
@@ -33,6 +35,7 @@ const findAllEducations = (_req, res) => {
     });
 };
 
+//Find Specific Education based on ID
 const findOne = (req, res) => {
   knex("education")
     .where({ edId: req.params.id })

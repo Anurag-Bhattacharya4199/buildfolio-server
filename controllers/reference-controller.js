@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
+//Add Reference Data to Reference Table
 const addReference = (req, res) => {
   if (
     !req.body.user_id ||
@@ -22,6 +23,7 @@ const addReference = (req, res) => {
     });
 };
 
+//Find All Reference Items
 const findAllReferences = (_req, res) => {
   knex("reference")
     .then((data) => {
@@ -32,6 +34,7 @@ const findAllReferences = (_req, res) => {
     });
 };
 
+//Find Specific Reference Item based on ID
 const findOne = (req, res) => {
   knex("reference")
     .where({ referenceId: req.params.id })

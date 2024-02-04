@@ -1,6 +1,7 @@
 const knex = require("knex")(require("../knexfile"));
 const validator = require("validator");
 
+//Add User Data to User Table
 const addUser = (req, res) => {
   const phoneRegex = /\+1\s\(\d\d\d\)\s\d\d\d-\d\d\d\d/;
   // VALIDATE PHONE NUMBER
@@ -36,6 +37,7 @@ const addUser = (req, res) => {
     });
 };
 
+//Find All User Items
 const findAllUsers = (_req, res) => {
   knex("user")
     .then((data) => {
@@ -46,6 +48,7 @@ const findAllUsers = (_req, res) => {
     });
 };
 
+//Find Specific Project Item based on ID
 const findOne = (req, res) => {
   knex("user")
     .where({ id: req.params.id })
@@ -67,6 +70,7 @@ const findOne = (req, res) => {
     });
 };
 
+//Find Education Details for a Specific User
 const findEducationForUser = (req, res) => {
   knex("education")
     .where({ user_id: req.params.userId })
@@ -91,6 +95,7 @@ const findEducationForUser = (req, res) => {
     });
 };
 
+//Find Work Experience Details for a Specific User
 const findWorkExperiencesForUser = (req, res) => {
   knex("workExperience")
     .where({ user_id: req.params.userId })
@@ -115,6 +120,7 @@ const findWorkExperiencesForUser = (req, res) => {
     });
 };
 
+//Find Project Details for Specific User
 const findProjectsForUser = (req, res) => {
   knex("project")
     .where({ user_id: req.params.userId })
@@ -136,6 +142,7 @@ const findProjectsForUser = (req, res) => {
     });
 };
 
+//Find Skill Details for Specific User
 const findSkillsForUser = (req, res) => {
   knex("skill")
     .where({ user_id: req.params.userId })
@@ -157,6 +164,7 @@ const findSkillsForUser = (req, res) => {
     });
 };
 
+//Find Reference Details for Specific User
 const findReferencesForUser = (req, res) => {
   knex("reference")
     .where({ user_id: req.params.userId })
