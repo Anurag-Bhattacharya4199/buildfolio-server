@@ -1,5 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 
+//Add Project Data to Project Table
 const addProject = (req, res) => {
   if (
     !req.body.user_id ||
@@ -23,6 +24,7 @@ const addProject = (req, res) => {
     });
 };
 
+//Find All Project Items
 const findAllProjects = (_req, res) => {
   knex("project")
     .then((data) => {
@@ -33,6 +35,7 @@ const findAllProjects = (_req, res) => {
     });
 };
 
+//Find Specific Project Item based on ID
 const findOne = (req, res) => {
   knex("project")
     .where({ projectId: req.params.id })
