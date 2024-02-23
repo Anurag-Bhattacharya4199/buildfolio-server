@@ -35,7 +35,7 @@ This API may return a 400 or 500 error
 }
 ```
 
-### GET `/users/:id/educations
+### GET `/users/:id/educations`
 - `:id`: This is the ID of User Information You are Getting
 - Returns an array of education information for a user
 - Example response body
@@ -71,7 +71,7 @@ This API may return a 400 or 500 error
 ]
 ```
 
-### GET `/users/:id/workExperiences
+### GET `/users/:id/workExperiences`
 - `:id`: This is the ID of User Information You are Getting
 - Returns an array of work experiences information for a user
 - Example response body
@@ -120,7 +120,7 @@ This API may return a 400 or 500 error
 ]
 ```
 
-## GET `/users/:id/projects
+## GET `/users/:id/projects`
 - `:id`: This is the ID of User Information You are Getting
 - Returns an array of projects information for a user
 - Example response body
@@ -165,7 +165,7 @@ This API may return a 400 or 500 error
 ]
 ```
 
-## GET `/users/:id/skills
+## GET `/users/:id/skills`
 - `:id`: This is the ID of User Information You are Getting
 - Returns an array of skills information for a user
 - Example response body
@@ -198,7 +198,7 @@ This API may return a 400 or 500 error
 ]
 ```
 
-## GET `/users/:id/references
+## GET `/users/:id/references`
 - `:id`: This is the ID of User Information You are Getting
 - Returns an array of references information for a user
 - Example response body
