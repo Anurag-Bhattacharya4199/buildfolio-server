@@ -7,3 +7,5 @@ These are the Steps to Run the Server Application:
 4) Once the tables have been created in your SQL database, server is ready to be run
 5) Use command npm start to start the server application
 6) Navigate to https://github.com/Anurag-Bhattacharya4199/buildfolio-client to get client application for the Full-Stack Experience
+
+Please Refer for API Doc: [API Doc](https://github.com/Anurag-Bhattacharya4199/buildfolio-server/blob/main/apiDoc.md)
